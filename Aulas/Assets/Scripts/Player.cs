@@ -30,6 +30,18 @@ public class Player : MonoBehaviour
     {
         float movement = Input.GetAxis("Horizontal");
 
-        rb.velocity = new Vector2(movement * speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
+
+        if(movement > 0)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+        }
+
+        if (movement < 0)
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+        }
+
+
     }
 }
